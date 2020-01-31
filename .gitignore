@@ -1,0 +1,14 @@
+*/target
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+.mvn
+mvnw
+mvnw.cmd
+log
+logs
+.log
+.DS_Store
+tmp

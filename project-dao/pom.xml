@@ -22,6 +22,24 @@
         </dependency>
     </dependencies>
 
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- MyBatis代码生成 -->
+                <plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>${mybatis.generator.version}</version>
+                    <configuration>
+                        <verbose>true</verbose>
+                        <overwrite>true</overwrite>
+                        <configurationFile>src/main/resources/generator/generator.xml</configurationFile>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
     
 
 </project>

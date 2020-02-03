@@ -19,7 +19,7 @@
 
 
     <properties>
-        <module.version>1.9.0-SNAPSHOT</module.version>
+        <module.version>1.0.0-SNAPSHOT</module.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

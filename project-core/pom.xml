@@ -13,5 +13,11 @@
     <version>${module.version}</version>
     <name>project-core</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

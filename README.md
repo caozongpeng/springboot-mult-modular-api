@@ -18,6 +18,10 @@
 #### project-api
 项目的API接口层，依赖于 service 模块
 
+#### project-docs
+项目存放文档目录以及sql脚本
+
+
 
 
 

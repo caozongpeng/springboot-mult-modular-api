@@ -5,6 +5,9 @@
 * mybatis&Generator
 * swagger&swagger-bootstrap-ui
 * mysql5.7
+* lombok
+
+运行项目idea上需要安装 `lombok` 插件,如果没有装自行百度安装
 
 #### project-core
 项目的核心类库，不依赖其它模块

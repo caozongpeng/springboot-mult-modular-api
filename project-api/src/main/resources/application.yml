@@ -40,3 +40,11 @@ logback:
 logging:
   level:
     com.tz.dao: debug
+
+# Swagger配置
+swagger:
+  host:
+  title: Project Swagger
+  description:
+  disabled: false # 是否禁用swagger
+  redirect-uri: / # 禁用swagger时的重定向地址

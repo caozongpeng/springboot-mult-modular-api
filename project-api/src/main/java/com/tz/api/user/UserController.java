@@ -6,7 +6,10 @@ import com.tz.core.model.ApiResponse;
 import com.tz.core.model.Page;
 import com.tz.dao.user.model.TUser;
 import com.tz.dao.user.req.UserReq;
+import com.tz.dao.user.req.UserSaveReq;
 import com.tz.service.user.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/user")
+@Api(tags = "用户接口")
 public class UserController extends BaseController {
 
     @Autowired
@@ -29,6 +33,7 @@ public class UserController extends BaseController {
      * @author KyrieCao
      * @date 2020/2/4 16:56
      */
+    @ApiOperation("用户分页列表")
     @PostMapping("/list")
     public ApiResponse<Page<TUser>> findPage(@RequestBody UserReq req) {
         Page<TUser> users = userService.findPage(req);
@@ -42,6 +47,7 @@ public class UserController extends BaseController {
      * @author KyrieCao
      * @date 2020/2/4 15:25
      */
+    @ApiOperation("查询单个用户")
     @GetMapping("/{id}")
     public ApiResponse<TUser> findById(@PathVariable Integer id) {
         TUser user = userService.findById(id);
@@ -55,8 +61,9 @@ public class UserController extends BaseController {
      * @author KyrieCao
      * @date 2020/2/4 15:56
      */
+    @ApiOperation("创建用户")
     @PostMapping("/create")
-    public ApiResponse<TUser> create(@RequestBody UserReq req) {
+    public ApiResponse<TUser> create(@RequestBody UserSaveReq req) {
         try {
             TUser user = userService.create(req);
             return new ApiResponse<TUser>().success(user);
@@ -72,6 +79,7 @@ public class UserController extends BaseController {
      * @author KyrieCao
      * @date 2020/2/4 16:11
      */
+    @ApiOperation("删除单个用户")
     @GetMapping("/delete/{id}")
     public ApiResponse<?> deleteById(@PathVariable Integer id) {
         try {
@@ -89,8 +97,9 @@ public class UserController extends BaseController {
      * @author KyrieCao
      * @date 2020/2/4 16:18
      */
+    @ApiOperation("更新用户")
     @PostMapping("/update")
-    public ApiResponse<?> updateById(@RequestBody UserReq req) {
+    public ApiResponse<?> updateById(@RequestBody UserSaveReq req) {
         try {
             userService.updateById(req);
             return new ApiResponse<>().success();

@@ -1,5 +1,6 @@
 package com.tz.core.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,12 +15,15 @@ import java.io.Serializable;
 public class PageQuery implements Serializable {
 
     /* 当前页码 */
+    @ApiModelProperty(value = "当前页码", required = true)
     private Integer pageIndex = null;
 
     /* 页码容量 */
+    @ApiModelProperty(value = "页码容量", required = true)
     private Integer pageSize = 10;
 
     // 排序
+    @ApiModelProperty(hidden = true)
     private String orderBy;
 
     public String getOrderBy() {
@@ -32,6 +36,7 @@ public class PageQuery implements Serializable {
     }
 
     /* 分页语句 */
+    @ApiModelProperty(hidden = true)
     public String getPageSql(){
         if(this.getPageIndex() == null) return null;
         return String.format("LIMIT %d, %d", (pageIndex - 1) * pageSize, this.getPageSize());

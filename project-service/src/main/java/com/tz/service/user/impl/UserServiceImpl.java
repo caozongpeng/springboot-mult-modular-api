@@ -7,6 +7,7 @@ import com.tz.core.model.Page;
 import com.tz.dao.user.TUserMapper;
 import com.tz.dao.user.model.TUser;
 import com.tz.dao.user.req.UserReq;
+import com.tz.dao.user.req.UserSaveReq;
 import com.tz.service.user.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -48,7 +49,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public TUser create(UserReq req) throws BusinessException {
+    public TUser create(UserSaveReq req) throws BusinessException {
         if (req == null) throw new BusinessException("非法操作");
         if (StringUtils.isBlank(req.getUsername())) throw new BusinessException("用户名不能为空");
         if (StringUtils.isBlank(req.getPassword())) throw new BusinessException("密码不能为空");
@@ -69,7 +70,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateById(UserReq req) throws BusinessException {
+    public void updateById(UserSaveReq req) throws BusinessException {
         TUser user = new TUser();
         BeanUtils.copyProperties(req, user);
         int resultNum = userMapper.updateByPrimaryKeySelective(user);

@@ -4,6 +4,7 @@ import com.tz.core.exception.BusinessException;
 import com.tz.core.model.Page;
 import com.tz.dao.user.model.TUser;
 import com.tz.dao.user.req.UserReq;
+import com.tz.dao.user.req.UserSaveReq;
 
 
 /**
@@ -34,14 +35,14 @@ public interface UserService {
      * @author KyrieCao
      * @date 2020/02/04 14:59
      */
-    TUser create(UserReq req) throws BusinessException;
+    TUser create(UserSaveReq req) throws BusinessException;
 
     /**
      * 根据ID更新
      * @author KyrieCao
      * @date 2020/02/04 14:59
      */
-    void updateById(UserReq req) throws BusinessException;
+    void updateById(UserSaveReq req) throws BusinessException;
 
     /**
      * 根据ID删除

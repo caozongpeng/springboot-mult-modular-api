@@ -1,5 +1,7 @@
 ### springboot 整合多模块项目脚手架基于restful API
 
+启动项目idea上需要安装 `lombok` 插件,如果没有装自行百度安装
+
 项目整合
 * springboot
 * mybatis&Generator
@@ -7,26 +9,37 @@
 * mysql5.7
 * lombok
 
-运行项目idea上需要安装 `lombok` 插件,如果没有装自行百度安装
+![project](https://github.com/caozongpeng/github-static/blob/master/springboot-mult-modular-api/project.png)
 
 #### project-core
 项目的核心类库，不依赖其它模块
 
+![core](https://github.com/caozongpeng/github-static/blob/master/springboot-mult-modular-api/core.png)
+
 #### project-dao
 项目的数据库访问层，依赖于core模块
+
+![dao](https://github.com/caozongpeng/github-static/blob/master/springboot-mult-modular-api/dao.png)
+
 
 #### project-service
 项目的服务层，依赖于dao模块
 
+![service](https://github.com/caozongpeng/github-static/blob/master/springboot-mult-modular-api/service.png)
+
+
 #### project-api
 项目的API接口层，依赖于 service 模块
+
+![api](https://github.com/caozongpeng/github-static/blob/master/springboot-mult-modular-api/api.png)
 
 #### project-docs
 项目存放文档目录以及sql脚本
 
+### swagger 接口文档管理
 
+访问路径：http://localhost:9100/doc.html
 
-
-
+![swagger](https://github.com/caozongpeng/github-static/blob/master/springboot-mult-modular-api/swagger.png)
 
 

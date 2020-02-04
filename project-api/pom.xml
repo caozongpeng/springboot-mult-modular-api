@@ -21,6 +21,13 @@
             <groupId>com.tz</groupId>
             <artifactId>project-service</artifactId>
         </dependency>
+
+        <!-- spring boot 核心 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

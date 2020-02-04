@@ -4,7 +4,9 @@ import com.tz.dao.user.model.TUser;
 import com.tz.dao.user.model.TUserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository("userMapper")
 public interface TUserMapper {
     int countByExample(TUserExample example);
 

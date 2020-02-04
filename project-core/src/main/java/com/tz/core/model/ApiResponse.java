@@ -35,11 +35,20 @@ public class ApiResponse<T> {
 
     /**
      * 成功
-     * - 请求成功，传入返回数据，如果没有，传入null
+     * - 请求成功，传入返回数据
      * @param data
      */
     public ApiResponse<T> success(T data){
         this.set("", Constants.Status.SUCCESS.getCode(), Constants.Status.SUCCESS.getMessage(), data, null);
+        return this;
+    }
+
+    /**
+     * 成功
+     * - 请求成功
+     */
+    public ApiResponse<T> success(){
+        this.set("", Constants.Status.SUCCESS.getCode(), Constants.Status.SUCCESS.getMessage(), null, null);
         return this;
     }
 

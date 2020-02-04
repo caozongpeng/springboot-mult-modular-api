@@ -1,9 +1,11 @@
 ### springboot 整合多模块项目脚手架基于restful API
+如果觉得项目可以帮助到你，请帮忙`Star`支持一下
 
 启动项目idea上需要安装 `lombok` 插件,如果没有装自行百度安装
 
 项目整合
-* springboot
+* JDK1.8
+* springboot2.1.5
 * mybatis&Generator
 * swagger&swagger-bootstrap-ui
 * mysql5.7
@@ -42,4 +44,6 @@
 
 ![swagger](https://github.com/caozongpeng/github-static/blob/master/springboot-mult-modular-api/swagger.png)
 
-
+### 版本说明
+* v1.0.0 脚手架
+* v2.0.0 整合`redis`&`rabbitmq`

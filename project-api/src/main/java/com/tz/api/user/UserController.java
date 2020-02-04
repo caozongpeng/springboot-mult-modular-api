@@ -3,6 +3,7 @@ package com.tz.api.user;
 import com.tz.api.BaseController;
 import com.tz.core.exception.BusinessException;
 import com.tz.core.model.ApiResponse;
+import com.tz.core.model.Page;
 import com.tz.dao.user.model.TUser;
 import com.tz.dao.user.req.UserReq;
 import com.tz.service.user.UserService;
@@ -20,6 +21,19 @@ public class UserController extends BaseController {
 
     @Autowired
     private UserService userService;
+
+    /**
+     * 用户分页列表
+     * @param req       请求对象
+     * @return ApiResponse<Page<TUser>>
+     * @author KyrieCao
+     * @date 2020/2/4 16:56
+     */
+    @PostMapping("/list")
+    public ApiResponse<Page<TUser>> findPage(@RequestBody UserReq req) {
+        Page<TUser> users = userService.findPage(req);
+        return new ApiResponse<Page<TUser>>().success(users);
+    }
 
     /**
      * 根据ID查询用户

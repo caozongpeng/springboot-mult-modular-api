@@ -1,6 +1,7 @@
 package com.tz.service.user;
 
 import com.tz.core.exception.BusinessException;
+import com.tz.core.model.Page;
 import com.tz.dao.user.model.TUser;
 import com.tz.dao.user.req.UserReq;
 
@@ -11,6 +12,15 @@ import com.tz.dao.user.req.UserReq;
  * @date 2020/02/04 14:59
  */
 public interface UserService {
+
+    /**
+     * 用户分页列表
+     * @param req       请求对象
+     * @return Page<TUser>
+     * @author KyrieCao
+     * @date 2020/2/4 16:52
+     */
+    Page<TUser> findPage(UserReq req);
 
     /**
      * 根据ID查询

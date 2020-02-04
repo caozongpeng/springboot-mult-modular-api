@@ -3,16 +3,15 @@ package com.tz.service.user.impl;
 
 import com.tz.core.constants.Constants;
 import com.tz.core.exception.BusinessException;
+import com.tz.core.model.Page;
 import com.tz.dao.user.TUserMapper;
 import com.tz.dao.user.model.TUser;
-import com.tz.dao.user.model.TUserExample;
 import com.tz.dao.user.req.UserReq;
 import com.tz.service.user.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -26,6 +25,22 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private TUserMapper userMapper;
+
+    @Override
+    public Page<TUser> findPage(UserReq req) {
+        Page<TUser> page = new Page<>();
+        // 如果存在页码，则查询总数
+        if (req.getPageIndex() != null) {
+            int total = userMapper.countBySelective(req);
+            page.setPageIndex(req.getPageIndex());
+            page.setPageSize(req.getPageSize());
+            page.setTotal(total);
+        }
+        // 查询数据
+        List<TUser> userList = userMapper.selectBySelective(req);
+        page.setResult(userList);
+        return page;
+    }
 
     @Override
     public TUser findById(Integer id) {

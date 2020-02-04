@@ -67,6 +67,36 @@
   <sql id="Base_Column_List" >
     id, username, password
   </sql>
+
+  <!-- 动态查询条件 -->
+  <sql id="Select_By_Selective_Condition">
+    <where>
+      <if test="username != null and username != '' ">
+        AND t.username LIKE CONCAT('%',#{username},'%')
+      </if>
+    </where>
+  </sql>
+
+  <!-- 动态统计 -->
+  <select id="countBySelective" resultType="java.lang.Integer" parameterType="com.tz.dao.user.req.UserReq">
+      SELECT COUNT(t.id) FROM t_user t
+      <include refid="Select_By_Selective_Condition" />
+  </select>
+
+  <!-- 动态查询 -->
+  <select id="selectBySelective" resultMap="BaseResultMap" parameterType="com.tz.dao.user.req.UserReq">
+      SELECT
+        <include refid="Base_Column_List" />
+      FROM t_user t
+      <include refid="Select_By_Selective_Condition" />
+      <if test="orderBy != null and orderBy != '' ">
+          ${orderBy}
+      </if>
+      <if test="pageSql != null and pageSql != '' ">
+          ${pageSql}
+      </if>
+  </select>
+
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tz.dao.user.model.TUserExample" >
     select
     <if test="distinct" >

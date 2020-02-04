@@ -15,6 +15,11 @@
 
 
     <dependencies>
+        <!-- springboot test -->
+        <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
 
         <!--依赖dao模块-->
         <dependency>

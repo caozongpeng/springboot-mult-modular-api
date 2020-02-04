@@ -1,0 +1,42 @@
+# 项目信息
+project:
+  version: v1.0.0
+  env: DEV
+
+# 服务器配置
+server:
+  port: 9100
+
+# Spring配置
+spring:
+  # 数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  jackson:
+    time-zone: GMT+8
+    ## 默认日期格式化
+    date-format: yyyy-MM-dd HH:mm
+  servlet:
+    multipart:
+      max-file-size: 5120000
+      max-request-size: 5120000
+
+# MyBatis配置
+mybatis:
+  mapper-locations: classpath:/mappers/*.xml #对应mappers映射xml文件的所在路径
+  configuration:
+    map-underscore-to-camel-case: true # 使用resultType时自动将下划线转为驼峰命名
+
+# logback信息配置
+logback:
+  level: INFO
+  appender: ${project.env}
+
+# dao层的日志设置为debug，方便查看sql
+logging:
+  level:
+    com.tz.dao: debug

@@ -24,6 +24,17 @@ spring:
     multipart:
       max-file-size: 5120000
       max-request-size: 5120000
+  # redis 配置
+  redis:
+    host: 119.23.74.61
+    port: 6379
+    password: qwer@$..
+    jedis:
+      pool:
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+    timeout: 0
 
 # MyBatis配置
 mybatis:

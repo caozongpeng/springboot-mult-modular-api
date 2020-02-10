@@ -50,6 +50,18 @@ spring:
       simple:
         acknowledge-mode: manual
         prefetch: 100
+  # mail 配置
+  mail:
+    host: smtp.163.com
+    username: kyriecao@163.com
+    password: czp1314
+    from: kyriecao@163.com
+    properties:
+      mail:
+        smtp:
+          starttls:
+            required: true
+            enable: true
 
 
 # MyBatis配置

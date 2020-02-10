@@ -3,7 +3,7 @@
 
 ### 分支说明
 * 分支 [v1.0.0](https://github.com/caozongpeng/springboot-mult-modular-api/tree/v1.0.0) 脚手架
-* 分支 [v2.0.0](https://github.com/caozongpeng/springboot-mult-modular-api/tree/v2.0.0) 整合`redis`&`rabbitmq`
+* 分支 [v2.0.0](https://github.com/caozongpeng/springboot-mult-modular-api/tree/v2.0.0) 整合`redis`&`rabbitmq` 实现 `email` 发送，保证消息100%投递成功并被消费
 
 项目整合
 * JDK1.8

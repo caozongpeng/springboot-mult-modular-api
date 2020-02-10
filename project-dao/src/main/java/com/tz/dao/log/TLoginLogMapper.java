@@ -4,7 +4,10 @@ import com.tz.dao.log.model.TLoginLog;
 import com.tz.dao.log.model.TLoginLogExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+
+@Repository("loginLogMapper")
 public interface TLoginLogMapper {
     int countByExample(TLoginLogExample example);
 

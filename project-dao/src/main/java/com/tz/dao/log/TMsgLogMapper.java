@@ -4,7 +4,9 @@ import com.tz.dao.log.model.TMsgLog;
 import com.tz.dao.log.model.TMsgLogExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository("msgLogMapper")
 public interface TMsgLogMapper {
     int countByExample(TMsgLogExample example);
 

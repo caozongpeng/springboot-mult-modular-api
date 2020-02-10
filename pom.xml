@@ -116,6 +116,12 @@
       <version>${fastjson.version}</version>
     </dependency>
 
+    <!--  验证  -->
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+    </dependency>
+
   </dependencies>
 
   <!--统一管理版本-->

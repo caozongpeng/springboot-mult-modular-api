@@ -1,5 +1,7 @@
 package com.tz.config;
 
+import com.tz.core.constants.Constants;
+import com.tz.service.log.MsgLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -24,6 +26,9 @@ public class RabbitConfig {
     @Autowired
     private CachingConnectionFactory connectionFactory;
 
+    @Autowired
+    private MsgLogService msgLogService;
+
     @Bean
     public RabbitTemplate rabbitTemplate() {
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
@@ -33,6 +38,8 @@ public class RabbitConfig {
         rabbitTemplate.setConfirmCallback((correlationData, ack, cause) -> {
             if (ack) {
                 log.info("消息成功发送到Exchange");
+                String msgId = correlationData.getId();
+                msgLogService.updateStatusByMsgId(msgId, Constants.MsgLogStatus.DELIVER_SUCCESS);
             } else {
                 log.info("消息发送到Exchange失败, {}, cause: {}", correlationData, cause);
             }

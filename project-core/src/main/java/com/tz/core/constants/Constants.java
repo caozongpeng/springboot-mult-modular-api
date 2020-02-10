@@ -11,6 +11,16 @@ import lombok.AllArgsConstructor;
 public class Constants {
 
     /**
+     * redis常量状态
+     * @author KyrieCao
+     * @date 2020/2/5 23:07
+     */
+    public interface Redis {
+        Integer EXPIRE_TIME_MINUTE = 60;// 过期时间, 60s, 一分钟
+        String TOKEN_PREFIX = "token:";// token key
+    }
+
+    /**
      * 系统通用响应状态
      * @author Caesar Liu
      * @date 2018/7/17

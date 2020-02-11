@@ -11,6 +11,22 @@ import lombok.AllArgsConstructor;
 public class Constants {
 
     /**
+     * rabbitmq常量
+     * @author KyrieCao
+     * @date 2020/2/11 22:12
+     */
+    public interface RabbitMqConstants {
+        // 登录日志
+        String LOGIN_LOG_QUEUE_NAME = "login.log.queue";
+        String LOGIN_LOG_EXCHANGE_NAME = "login.log.exchange";
+        String LOGIN_LOG_ROUTING_KEY_NAME = "login.log.routing.key";
+        // 发送邮件
+        String MAIL_QUEUE_NAME = "mail.queue";
+        String MAIL_EXCHANGE_NAME = "mail.exchange";
+        String MAIL_ROUTING_KEY_NAME = "mail.routing.key";
+    }
+
+    /**
      * 消息状态常量
      * @author KyrieCao
      * @date 2020/2/10 22:19

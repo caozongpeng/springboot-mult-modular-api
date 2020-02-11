@@ -35,6 +35,34 @@ spring:
         max-wait: -1
         min-idle: 0
     timeout: 0
+  # rabbitmq 配置
+  rabbitmq:
+    host: 119.23.74.61
+    port: 5672
+    username: guest
+    password: guest
+    # 开启confirms回调 P -> Exchange
+    publisher-confirms: true
+    # 开启returnedMessage回调 Exchange -> Queue
+    publisher-returns: true
+    # 设置手动确认(ack) Queue -> C
+    listener:
+      simple:
+        acknowledge-mode: manual
+        prefetch: 100
+  # mail 配置
+  mail:
+    host: smtp.163.com
+    username: kyriecao@163.com
+    password: czp1314
+    from: kyriecao@163.com
+    properties:
+      mail:
+        smtp:
+          starttls:
+            required: true
+            enable: true
+
 
 # MyBatis配置
 mybatis:

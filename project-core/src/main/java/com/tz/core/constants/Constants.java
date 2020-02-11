@@ -11,6 +11,34 @@ import lombok.AllArgsConstructor;
 public class Constants {
 
     /**
+     * rabbitmq常量
+     * @author KyrieCao
+     * @date 2020/2/11 22:12
+     */
+    public interface RabbitMqConstants {
+        // 登录日志
+        String LOGIN_LOG_QUEUE_NAME = "login.log.queue";
+        String LOGIN_LOG_EXCHANGE_NAME = "login.log.exchange";
+        String LOGIN_LOG_ROUTING_KEY_NAME = "login.log.routing.key";
+        // 发送邮件
+        String MAIL_QUEUE_NAME = "mail.queue";
+        String MAIL_EXCHANGE_NAME = "mail.exchange";
+        String MAIL_ROUTING_KEY_NAME = "mail.routing.key";
+    }
+
+    /**
+     * 消息状态常量
+     * @author KyrieCao
+     * @date 2020/2/10 22:19
+     */
+    public interface MsgLogStatus {
+        Integer DELIVERING = 0; // 消息投递中
+        Integer DELIVER_SUCCESS = 1; // 投递成功
+        Integer DELIVER_FAIL = 2; // 投递失败
+        Integer CONSUMED_SUCCESS = 3; // 已消费
+    }
+
+    /**
      * redis常量状态
      * @author KyrieCao
      * @date 2020/2/5 23:07

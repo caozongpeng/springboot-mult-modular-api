@@ -32,9 +32,23 @@
     <swagger.bootstrap-ui.version>1.9.3</swagger.bootstrap-ui.version>
     <redisson.version>3.6.5</redisson.version>
     <jedis.version>2.9.0</jedis.version>
+    <joda.time.version>2.10</joda.time.version>
   </properties>
 
   <dependencies>
+
+    <!--mail-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-mail</artifactId>
+    </dependency>
+
+    <!--mq-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-amqp</artifactId>
+    </dependency>
+
     <!--redisson-->
     <dependency>
       <groupId>org.redisson</groupId>
@@ -101,6 +115,19 @@
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
       <version>${fastjson.version}</version>
+    </dependency>
+
+    <!--  验证  -->
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+    </dependency>
+
+    <!--joda time-->
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>${joda.time.version}</version>
     </dependency>
 
   </dependencies>

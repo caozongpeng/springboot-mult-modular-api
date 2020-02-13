@@ -35,19 +35,19 @@ public interface UserService {
      * @author KyrieCao
      * @date 2020/02/04 14:59
      */
-    TUser create(UserSaveReq req) throws BusinessException;
+    TUser create(UserSaveReq req);
 
     /**
      * 根据ID更新
      * @author KyrieCao
      * @date 2020/02/04 14:59
      */
-    void updateById(UserSaveReq req) throws BusinessException;
+    void updateById(UserSaveReq req);
 
     /**
      * 根据ID删除
      * @author KyrieCao
      * @date 2020/02/04 14:59
      */
-    void deleteById(Integer id) throws BusinessException;
+    void deleteById(Integer id);
 }

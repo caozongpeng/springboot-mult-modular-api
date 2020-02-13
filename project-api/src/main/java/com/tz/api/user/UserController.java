@@ -64,12 +64,8 @@ public class UserController extends BaseController {
     @ApiOperation("创建用户")
     @PostMapping("/create")
     public ApiResponse<TUser> create(@RequestBody UserSaveReq req) {
-        try {
-            TUser user = userService.create(req);
-            return new ApiResponse<TUser>().success(user);
-        } catch (BusinessException e) {
-            return new ApiResponse<TUser>().failed(e);
-        }
+        TUser user = userService.create(req);
+        return new ApiResponse<TUser>().success(user);
     }
 
     /**
@@ -82,12 +78,8 @@ public class UserController extends BaseController {
     @ApiOperation("删除单个用户")
     @GetMapping("/delete/{id}")
     public ApiResponse<?> deleteById(@PathVariable Integer id) {
-        try {
-            userService.deleteById(id);
-            return new ApiResponse<>().success();
-        } catch (BusinessException e) {
-            return new ApiResponse<>().failed(e);
-        }
+        userService.deleteById(id);
+        return new ApiResponse<>().success();
     }
 
     /**
@@ -100,11 +92,7 @@ public class UserController extends BaseController {
     @ApiOperation("更新用户")
     @PostMapping("/update")
     public ApiResponse<?> updateById(@RequestBody UserSaveReq req) {
-        try {
-            userService.updateById(req);
-            return new ApiResponse<>().success();
-        } catch (BusinessException e) {
-            return new ApiResponse<>().failed(e);
-        }
+        userService.updateById(req);
+        return new ApiResponse<>().success();
     }
 }

@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public TUser create(UserSaveReq req) throws BusinessException {
+    public TUser create(UserSaveReq req) {
         if (req == null) throw new BusinessException("非法操作");
         if (StringUtils.isBlank(req.getUsername())) throw new BusinessException("用户名不能为空");
         if (StringUtils.isBlank(req.getPassword())) throw new BusinessException("密码不能为空");
@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteById(Integer id) throws BusinessException {
+    public void deleteById(Integer id) {
         TUser user = findById(id);
         if (user == null) throw new BusinessException(Constants.Status.DATA_EMPTY);
         int resultNum = userMapper.deleteByPrimaryKey(id);
@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateById(UserSaveReq req) throws BusinessException {
+    public void updateById(UserSaveReq req) {
         TUser user = new TUser();
         BeanUtils.copyProperties(req, user);
         int resultNum = userMapper.updateByPrimaryKeySelective(user);

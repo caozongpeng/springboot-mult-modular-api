@@ -1,7 +1,6 @@
 package com.tz.api.user;
 
 import com.tz.api.BaseController;
-import com.tz.core.exception.BusinessException;
 import com.tz.core.model.ApiResponse;
 import com.tz.core.model.Page;
 import com.tz.dao.user.model.TUser;

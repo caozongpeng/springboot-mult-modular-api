@@ -18,7 +18,7 @@ public interface MsgLogService {
      * @author KyrieCao
      * @date 2020/2/10 22:12
      */
-    void updateStatusByMsgId(String msgId, Integer status) throws BusinessException;
+    void updateStatusByMsgId(String msgId, Integer status);
 
     /**
      * 消息 id 查询消息

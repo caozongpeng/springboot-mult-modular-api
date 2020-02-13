@@ -38,15 +38,11 @@ public class EmailController extends BaseController {
     @ApiOperation("发送邮件")
     @PostMapping("/sendEmail")
     public ApiResponse<?> sendEmail(@Validated Mail mail, Errors errors) {
-        try {
-            if (errors.hasErrors()) {
-                String msg = errors.getFieldError().getDefaultMessage();
-                return new ApiResponse<>().failed(msg);
-            }
-            emailService.sendEmail(mail);
-        } catch (BusinessException e) {
-            return new ApiResponse<>().failed(e);
+        if (errors.hasErrors()) {
+            String msg = errors.getFieldError().getDefaultMessage();
+            return new ApiResponse<>().failed(msg);
         }
+        emailService.sendEmail(mail);
         return new ApiResponse<>().success();
     }
 }

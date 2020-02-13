@@ -22,7 +22,7 @@ public class MsgLogServiceImpl implements MsgLogService {
     private TMsgLogMapper msgLogMapper;
 
     @Override
-    public void updateStatusByMsgId(String msgId, Integer status) throws BusinessException {
+    public void updateStatusByMsgId(String msgId, Integer status) {
         TMsgLog msgLog = findByMsgId(msgId);
         if (null == msgLog) throw new BusinessException(Constants.Status.DATA_EMPTY);
         msgLog.setStatus(status);

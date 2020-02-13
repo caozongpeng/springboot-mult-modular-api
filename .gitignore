@@ -8,7 +8,7 @@
 mvnw
 mvnw.cmd
 ./log
-./logs
+logs
 .log
 .DS_Store
 tmp

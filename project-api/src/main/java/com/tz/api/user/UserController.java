@@ -26,6 +26,21 @@ public class UserController extends BaseController {
     private UserService userService;
 
     /**
+     * 用户登录
+     * @param username      用户名
+     * @param password      密码
+     * @return ApiResponse<?>
+     * @author KyrieCao
+     * @date 2020/2/16 22:22
+     */
+    @ApiOperation("用户登录")
+    @PostMapping("/login")
+    public ApiResponse<?> login(String username, String password) {
+        TUser user = userService.login(username, password);
+        return new ApiResponse<>().success(user);
+    }
+
+    /**
      * 用户分页列表
      * @param req       请求对象
      * @return ApiResponse<Page<TUser>>

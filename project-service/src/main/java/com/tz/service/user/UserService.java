@@ -15,6 +15,16 @@ import com.tz.dao.user.req.UserSaveReq;
 public interface UserService {
 
     /**
+     * 用户登录
+     * @param username      用户名
+     * @param password      密码
+     * @return TUser        用户信息
+     * @author KyrieCao
+     * @date 2020/2/16 21:44
+     */
+    TUser login(String username, String password);
+
+    /**
      * 用户分页列表
      * @param req       请求对象
      * @return Page<TUser>

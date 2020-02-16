@@ -15,6 +15,16 @@ public class TLoginLog {
 
     private Date updateTime;
 
+    private String msgId;// 消息id
+
+    public String getMsgId() {
+        return msgId;
+    }
+
+    public void setMsgId(String msgId) {
+        this.msgId = msgId;
+    }
+
     public Integer getId() {
         return id;
     }

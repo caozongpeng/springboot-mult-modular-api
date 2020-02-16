@@ -12,6 +12,16 @@ import org.springframework.stereotype.Repository;
 public interface TUserMapper {
 
     /**
+     * 通过用户名和密码查询用户
+     * @param username      用户名
+     * @param password      密码
+     * @return TUser
+     * @author KyrieCao
+     * @date 2020/2/16 21:47
+     */
+    TUser selectByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
+
+    /**
      * 动态查询统计
      * @param req       查询对象
      * @author KyrieCao

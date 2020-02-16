@@ -66,7 +66,18 @@
   </sql>
   <sql id="Base_Column_List" >
     id, username, password
-  </sql>
+   </sql>
+
+  <!-- 通过用户名和密码查询用户 -->
+  <select id="selectByUsernameAndPassword" resultMap="BaseResultMap">
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM
+      t_user t
+    WHERE
+      t.username = #{username, jdbcType=VARCHAR}
+      AND t.password = #{password, jdbcType=VARCHAR}
+  </select>
 
   <!-- 动态查询条件 -->
   <sql id="Select_By_Selective_Condition">

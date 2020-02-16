@@ -1,7 +1,6 @@
 package com.tz.api.email;
 
 import com.tz.api.BaseController;
-import com.tz.core.exception.BusinessException;
 import com.tz.core.model.ApiResponse;
 import com.tz.core.model.Mail;
 import com.tz.service.email.EmailService;
@@ -9,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,8 +39,9 @@ public class EmailController extends BaseController {
     @PostMapping("/sendEmail")
     public ApiResponse<?> sendEmail(@Validated Mail mail, Errors errors) {
         if (errors.hasErrors()) {
-            String msg = errors.getFieldError().getDefaultMessage();
-            return new ApiResponse<>().failed(msg);
+            FieldError fieldError = errors.getFieldError();
+            if (fieldError != null)
+                return new ApiResponse<>().failed(fieldError.getDefaultMessage());
         }
         emailService.sendEmail(mail);
         return new ApiResponse<>().success();

@@ -11,7 +11,7 @@ server:
 spring:
   # 数据源配置
   datasource:
-    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&autoR
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -11,6 +11,16 @@ import lombok.AllArgsConstructor;
 public class Constants {
 
     /**
+     * 日志类型
+     * @author KyrieCao
+     * @date 2020/2/16 21:57
+     */
+    public interface LogType {
+        Integer LOGIN = 1;// 登录
+        Integer LOGOUT = 2;// 登出
+    }
+
+    /**
      * rabbitmq常量
      * @author KyrieCao
      * @date 2020/2/11 22:12

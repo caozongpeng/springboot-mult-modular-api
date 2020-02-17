@@ -1,6 +1,7 @@
 package com.tz.api.email;
 
 import com.tz.api.BaseController;
+import com.tz.core.annotation.ApiIdempotent;
 import com.tz.core.model.ApiResponse;
 import com.tz.core.model.Mail;
 import com.tz.service.email.EmailService;
@@ -29,12 +30,14 @@ public class EmailController extends BaseController {
 
     /**
      * 发送邮件
+     * -- 加了 @ApiIdempotent 注解 需要先获取token复制token拼接到 /email/sendEmail?token=token 才可以
      * @param mail          email对象
      * @param errors        错误消息
      * @return ApiResponse<?>
      * @author KyrieCao
      * @date 2020/2/11 22:24
      */
+    @ApiIdempotent
     @ApiOperation("发送邮件")
     @PostMapping("/sendEmail")
     public ApiResponse<?> sendEmail(@Validated Mail mail, Errors errors) {

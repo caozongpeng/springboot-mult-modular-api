@@ -32,9 +32,19 @@ public class ApiIdempotentInterceptor implements HandlerInterceptor {
 
         ApiIdempotent methodAnnotation = method.getAnnotation(ApiIdempotent.class);
         if (null != methodAnnotation) {
-            tokenService.checkToken(request); // 幂等性校验, 校验通过则放行, 校验失败则抛出异常, 并通过统一异常处理返回友好提示
+            check(request); // 幂等性校验, 校验通过则放行, 校验失败则抛出异常, 并通过统一异常处理返回友好提示
         }
         return true;
+    }
+
+    /**
+     * 验证方法
+     * @param request       请求对象
+     * @author KyrieCao
+     * @date 2020/2/18 21:09
+     */
+    private void check(HttpServletRequest request) {
+        tokenService.checkToken(request);
     }
 
     @Override

@@ -28,6 +28,7 @@ public class UserController extends BaseController {
 
     /**
      * 用户登录
+     * -- @AccessLimit 注解  在5秒内最大只有请求3次登录接口,超过则抛出异常
      * @param username      用户名
      * @param password      密码
      * @return ApiResponse<?>

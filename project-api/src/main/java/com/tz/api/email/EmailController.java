@@ -30,7 +30,7 @@ public class EmailController extends BaseController {
 
     /**
      * 发送邮件
-     * -- 加了 @ApiIdempotent 注解 需要先获取token复制token拼接到 /email/sendEmail?token=token 才可以
+     * -- @ApiIdempotent 注解 需要先获取token复制token拼接到 /email/sendEmail?token=token 才可以
      * @param mail          email对象
      * @param errors        错误消息
      * @return ApiResponse<?>

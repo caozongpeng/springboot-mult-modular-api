@@ -1,6 +1,7 @@
 package com.tz.api.user;
 
 import com.tz.api.BaseController;
+import com.tz.core.annotation.AccessLimit;
 import com.tz.core.model.ApiResponse;
 import com.tz.core.model.Page;
 import com.tz.dao.user.model.TUser;
@@ -33,6 +34,7 @@ public class UserController extends BaseController {
      * @author KyrieCao
      * @date 2020/2/16 22:22
      */
+    @AccessLimit(maxCount = 3, seconds = 5)
     @ApiOperation("用户登录")
     @PostMapping("/login")
     public ApiResponse<?> login(String username, String password) {

@@ -17,6 +17,15 @@ public class InterceptorConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         // 接口幂等性拦截器
         registry.addInterceptor(apiIdempotentInterceptor());
+
+        // 接口防刷限流拦截器
+        registry.addInterceptor(accessLimitInterceptor());
+
+    }
+
+    @Bean
+    public AccessLimitInterceptor accessLimitInterceptor() {
+        return new AccessLimitInterceptor();
     }
 
     @Bean

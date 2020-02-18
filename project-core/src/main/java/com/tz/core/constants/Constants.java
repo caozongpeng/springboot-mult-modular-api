@@ -56,6 +56,7 @@ public class Constants {
     public interface Redis {
         Integer EXPIRE_TIME_MINUTE = 60;// 过期时间, 60s, 一分钟
         String TOKEN_PREFIX = "token:";// token key
+        String ACCESS_LIMIT_PREFIX = "accessLimit:"; // 接口限流前缀
     }
 
     /**

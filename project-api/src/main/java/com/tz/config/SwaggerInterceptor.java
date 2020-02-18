@@ -16,7 +16,6 @@ import java.io.IOException;
  * @date 2020/2/4 20:12
  */
 @Slf4j
-@Component
 public class SwaggerInterceptor implements HandlerInterceptor {
 
     @Value("${swagger.disabled}")

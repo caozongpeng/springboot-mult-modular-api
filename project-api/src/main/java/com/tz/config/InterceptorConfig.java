@@ -15,6 +15,10 @@ public class InterceptorConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+
+        // Swagger配置拦截器
+        registry.addInterceptor(swaggerInterceptor()).addPathPatterns("/swagger-ui.html", "/doc.html");
+
         // 接口幂等性拦截器
         registry.addInterceptor(apiIdempotentInterceptor());
 
@@ -31,6 +35,11 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Bean
     public ApiIdempotentInterceptor apiIdempotentInterceptor() {
         return new ApiIdempotentInterceptor();
+    }
+
+    @Bean
+    public SwaggerInterceptor swaggerInterceptor() {
+        return new SwaggerInterceptor();
     }
 
 }

@@ -8,6 +8,15 @@ import org.springframework.stereotype.Repository;
 
 @Repository("msgLogMapper")
 public interface TMsgLogMapper {
+
+    /**
+     * 查询发送失败消息
+     * @return List<TMsgLog>
+     * @author KyrieCao
+     * @date 2020/2/18 21:58
+     */
+    List<TMsgLog> selectTimeoutMsg();
+
     int countByExample(TMsgLogExample example);
 
     int deleteByExample(TMsgLogExample example);

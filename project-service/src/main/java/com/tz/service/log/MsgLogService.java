@@ -1,7 +1,9 @@
 package com.tz.service.log;
 
-import com.tz.core.exception.BusinessException;
 import com.tz.dao.log.model.TMsgLog;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * 消息日志 service 接口
@@ -10,6 +12,22 @@ import com.tz.dao.log.model.TMsgLog;
  */
 public interface MsgLogService {
 
+    /**
+     * 通过消息id和时间更新tryCont
+     * @param msgId         消息id
+     * @param tryTime       时间
+     * @author KyrieCao
+     * @date 2020/2/18 22:21
+     */
+    void updateTryCountByMsgIdAndTryTime(String msgId, Date tryTime);
+
+    /**
+     * 查询发送失败消息
+     * @return List<TMsgLog>
+     * @author KyrieCao
+     * @date 2020/2/18 21:58
+     */
+    List<TMsgLog> selectTimeoutMsg();
 
     /**
      *  通过消息id更新状态

@@ -78,6 +78,20 @@
   <sql id="Blob_Column_List" >
     msg
   </sql>
+
+  <!-- 查询发送失败消息 -->
+  <select id="selectTimeoutMsg" resultMap="ResultMapWithBLOBs">
+    SELECT
+      <include refid="Base_Column_List" />
+      ,
+      <include refid="Blob_Column_List" />
+    FROM
+      t_msg_log m
+    WHERE
+      m.status = 0
+      and m.next_try_time &lt;= now()
+  </select>
+
   <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.tz.dao.log.model.TMsgLogExample" >
     select
     <if test="distinct" >

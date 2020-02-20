@@ -12,6 +12,8 @@
 * swagger&swagger-bootstrap-ui
 * mysql5.7
 * lombok
+* Redis&Redisson
+* RabbitMQ
 
 ![project](https://github.com/caozongpeng/github-static/blob/master/springboot-mult-modular-api/project.png)
 

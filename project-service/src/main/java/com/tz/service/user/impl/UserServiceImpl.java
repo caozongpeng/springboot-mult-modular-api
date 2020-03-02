@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.tz.core.constants.Constants;
 import com.tz.core.exception.BusinessException;
 import com.tz.core.model.Page;
+import com.tz.core.mq.MessageHelper;
 import com.tz.core.utils.JodaTimeUtil;
 import com.tz.core.utils.RandomUtil;
 import com.tz.dao.log.TMsgLogMapper;
@@ -81,8 +82,8 @@ public class UserServiceImpl implements UserService {
         msgLog.setMsg(JSONObject.toJSONString(loginLog));
         msgLog.setExchange(Constants.RabbitMqConstants.LOGIN_LOG_EXCHANGE_NAME);
         msgLog.setRoutingKey(Constants.RabbitMqConstants.LOGIN_LOG_ROUTING_KEY_NAME);
-        msgLog.setStatus(Constants.MsgLogStatus.DELIVERING);
         msgLog.setTryCount(0);
+        msgLog.setStatus(Constants.MsgLogStatus.DELIVERING);
         msgLog.setCreateTime(now);
         msgLog.setUpdateTime(now);
         msgLog.setNextTryTime(JodaTimeUtil.plusMinutes(now,1));
@@ -90,7 +91,7 @@ public class UserServiceImpl implements UserService {
 
         // 发送消息
         CorrelationData correlationData = new CorrelationData(msgId);
-        rabbitTemplate.convertAndSend(Constants.RabbitMqConstants.LOGIN_LOG_EXCHANGE_NAME, Constants.RabbitMqConstants.LOGIN_LOG_ROUTING_KEY_NAME, loginLog, correlationData);
+        rabbitTemplate.convertAndSend(Constants.RabbitMqConstants.LOGIN_LOG_EXCHANGE_NAME, Constants.RabbitMqConstants.LOGIN_LOG_ROUTING_KEY_NAME, MessageHelper.objToMsg(loginLog), correlationData);
     }
 
     @Override

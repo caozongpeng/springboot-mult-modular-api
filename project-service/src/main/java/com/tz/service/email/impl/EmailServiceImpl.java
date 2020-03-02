@@ -3,6 +3,7 @@ package com.tz.service.email.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.tz.core.constants.Constants;
 import com.tz.core.model.Mail;
+import com.tz.core.mq.MessageHelper;
 import com.tz.core.utils.JodaTimeUtil;
 import com.tz.core.utils.RandomUtil;
 import com.tz.dao.log.TMsgLogMapper;
@@ -53,6 +54,6 @@ public class EmailServiceImpl implements EmailService {
 
         CorrelationData correlationData = new CorrelationData(msgId);
         // 发送消息
-        rabbitTemplate.convertAndSend(Constants.RabbitMqConstants.MAIL_EXCHANGE_NAME, Constants.RabbitMqConstants.MAIL_ROUTING_KEY_NAME, mail, correlationData);
+        rabbitTemplate.convertAndSend(Constants.RabbitMqConstants.MAIL_EXCHANGE_NAME, Constants.RabbitMqConstants.MAIL_ROUTING_KEY_NAME, MessageHelper.objToMsg(mail), correlationData);
     }
 }

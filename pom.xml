@@ -30,7 +30,7 @@
     <fastjson.version>1.2.25</fastjson.version>
     <swagger.version>2.9.2</swagger.version>
     <swagger.bootstrap-ui.version>1.9.3</swagger.bootstrap-ui.version>
-    <redisson.version>3.6.5</redisson.version>
+    <redisson.version>3.22.0</redisson.version>
     <jedis.version>2.9.0</jedis.version>
     <joda.time.version>2.10</joda.time.version>
   </properties>
